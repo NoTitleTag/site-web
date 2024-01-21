@@ -37,9 +37,8 @@ for (let i = 0; i < pieces.length; i++) {
  }
  
  //gestion des boutons 
-const boutonTrier = document.querySelector(".btn-trier");
-
-boutonTrier.addEventListener("click", function () {
+const boutonTrierCroissant = document.querySelector(".btn-trier-croissant");
+boutonTrierCroissant.addEventListener("click", function () {
     const piecesOrdonnees = Array.from(pieces);
     piecesOrdonnees.sort(function (a, b) {
         return a.prix - b.prix;
@@ -47,12 +46,28 @@ boutonTrier.addEventListener("click", function () {
      console.log(piecesOrdonnees);
 });
 
-const boutonFiltrer = document.querySelector(".btn-filtrer");
-
-boutonFiltrer.addEventListener("click", function () {
+const boutonFiltrerPrix = document.querySelector(".btn-filtrer-prix");
+boutonFiltrerPrix.addEventListener("click", function () {
     const piecesFiltrees = pieces.filter(function (piece) {
         return piece.prix <= 35;
     });
    console.log(piecesFiltrees)
 });
 
+
+const boutonTrierDecroissant = document.querySelector(".btn-trier-decroissant")
+boutonTrierDecroissant.addEventListener("click", () => {
+    const piecesDesordonnees = Array.from(pieces)
+    piecesDesordonnees.sort(function (a,b) {
+        return b.prix - a.prix
+    })
+    console.log(piecesDesordonnees)
+})
+
+const boutonFiltrerDescription = document.querySelector(".btn-filtrer-description")
+boutonFiltrerDescription.addEventListener("click", () => {
+    const piecesFiltreesDescription = pieces.filter(function(pieces) {
+        return pieces.description
+    })
+    console.log(piecesFiltreesDescription)
+})
